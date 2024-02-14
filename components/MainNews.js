@@ -34,33 +34,34 @@ const MainNews = () => {
 
   if (loading) {
     return <div>Loading...</div>;
-  }
-
-  if (error) {
+  } else if (error) {
     return <div>Error loading news.</div>;
-  }
-
-  return (
-    <div>
+  } else
+    return (
       <div>
-        <h2>Top Headlines</h2>
+        <div>
+          <h2>Top Headlines</h2>
+        </div>
+        <div className="card-container">
+          {dataMainNews.slice(0, 50).map((article, index) => (
+            <div key={index} className="card">
+              {article.urlToImage && (
+                <img
+                  src={article.urlToImage}
+                  width="50px"
+                  alt="Article image"
+                />
+              )}
+              <h3>
+                <a href={article.url}>{article.title}</a>,
+                <span className="emphasis"> {article.source.name}</span>
+              </h3>
+              <p className="card-description">{article.description}</p>
+            </div>
+          ))}
+        </div>
       </div>
-      <div className="card-container">
-        {dataMainNews.slice(0, 50).map((article, index) => (
-          <div key={index} className="card">
-            {article.urlToImage && (
-              <img src={article.urlToImage} width="50px" alt="Article image" />
-            )}
-            <h3>
-              <a href={article.url}>{article.title}</a>,
-              <span className="emphasis"> {article.source.name}</span>
-            </h3>
-            <p className="card-description">{article.description}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+    );
 };
 
 export default MainNews;

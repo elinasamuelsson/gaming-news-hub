@@ -34,28 +34,25 @@ const PopularNews = () => {
 
   if (loading) {
     return <div>Loading...</div>;
-  }
-
-  if (error) {
+  } else if (error) {
     return <div>Error loading news.</div>;
-  }
-
-  return (
-    <div>
+  } else
+    return (
       <div>
-        <h2>Top Headlines</h2>
-      </div>
-      {dataMostPopular.slice(0, 3).map((article, index) => (
-        <div key={index}>
-          <h3>
-            <a href={article.url}>{article.title}</a>,
-            <span className="emphasis"> {article.source.name}</span>
-          </h3>
-          <p>{article.description}</p>
+        <div>
+          <h2>Top Headlines</h2>
         </div>
-      ))}
-    </div>
-  );
+        {dataMostPopular.slice(0, 3).map((article, index) => (
+          <div key={index}>
+            <h3>
+              <a href={article.url}>{article.title}</a>,
+              <span className="emphasis"> {article.source.name}</span>
+            </h3>
+            <p>{article.description}</p>
+          </div>
+        ))}
+      </div>
+    );
 };
 
 export default PopularNews;

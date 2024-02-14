@@ -39,38 +39,37 @@ const NewsSearch = () => {
 
   if (error) {
     return <div>Error searching news.</div>;
-  }
-
-  return (
-    <div className="search-bar">
-      <div className="search-input">
-        <input
-          type="text"
-          id="newsSearchInput"
-          placeholder="Search news articles"
-        />{" "}
-        <br />
-        <button onClick={fetchData}>Search</button>
-        <button onClick={toggleResults}>Show/hide search results</button>
+  } else
+    return (
+      <div className="search-bar">
+        <div className="search-input">
+          <input
+            type="text"
+            id="newsSearchInput"
+            placeholder="Search news articles"
+          />{" "}
+          <br />
+          <button onClick={fetchData}>Search</button>
+          <button onClick={toggleResults}>Show/hide search results</button>
+        </div>
+        <div>
+          {showResults && (
+            <div className="search-results">
+              <ul>
+                {dataSearch.slice(0, 5).map((article, index) => (
+                  <li key={index}>
+                    <h3>
+                      <a href={article.url}>{article.title}</a>,
+                      <span className="emphasis"> {article.source.name}</span>
+                    </h3>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
       </div>
-      <div>
-        {showResults && (
-          <div className="search-results">
-            <ul>
-              {dataSearch.slice(0, 5).map((article, index) => (
-                <li key={index}>
-                  <h3>
-                    <a href={article.url}>{article.title}</a>,
-                    <span className="emphasis"> {article.source.name}</span>
-                  </h3>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </div>
-    </div>
-  );
+    );
 };
 
 export default NewsSearch;

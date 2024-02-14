@@ -34,26 +34,23 @@ const RecentNews = () => {
 
   if (loading) {
     return <div>Loading...</div>;
-  }
-
-  if (error) {
+  } else if (error) {
     return <div>Error loading news.</div>;
-  }
-
-  return (
-    <div>
+  } else
+    return (
       <div>
-        <h2>Most Recent News</h2>
-      </div>
-      {dataMostRecent.slice(0, 5).map((article, index) => (
-        <div key={index}>
-          <h3>
-            <a href={article.url}>{article.title}</a>
-          </h3>
+        <div>
+          <h2>Most Recent News</h2>
         </div>
-      ))}
-    </div>
-  );
+        {dataMostRecent.slice(0, 5).map((article, index) => (
+          <div key={index}>
+            <h3>
+              <a href={article.url}>{article.title}</a>
+            </h3>
+          </div>
+        ))}
+      </div>
+    );
 };
 
 export default RecentNews;
