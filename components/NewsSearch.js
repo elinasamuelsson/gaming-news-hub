@@ -14,13 +14,7 @@ const NewsSearch = () => {
         .value.trim();
       let newsSearchInputNoBlanks = newsSearchInput.replace(/\s+/g, "-");
 
-      const url =
-        "https://newsapi.org/v2/everything?" +
-        "q=" +
-        encodeURIComponent(newsSearchInputNoBlanks) +
-        "&" +
-        "sortBy=publishedAt&" +
-        "apiKey=c30072e05d984e198cf7cc20aa1c134d";
+      const url = "" + encodeURIComponent(newsSearchInputNoBlanks) + "";
 
       const response = await fetch(url);
       const jsonData = await response.json();
