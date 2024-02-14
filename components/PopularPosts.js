@@ -5,6 +5,7 @@ import Link from "next/link";
 
 const PostHistory = () => {
   const [dataPostHistory, setDataPostHistory] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/posts")
@@ -16,11 +17,11 @@ const PostHistory = () => {
       })
       .catch((error) => {
         console.error(error);
-        setError(error);
+        setError(true);
       });
   }, []);
 
-  if (loading) {
+  if (error) {
     return <div>Error loading games.</div>;
   } else
     return (

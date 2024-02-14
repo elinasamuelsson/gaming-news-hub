@@ -13,15 +13,15 @@ const PostHistory = () => {
         return response.json();
       })
       .then((json) => {
-        setDataPostHistory(json);
+        setdataPostHistory(json);
       })
       .catch((error) => {
         console.error(error);
-        setError(error);
+        setError(true);
       });
   }, []);
 
-  if (loading) {
+  if (error) {
     return <div>Error loading games.</div>;
   } else
     return (
