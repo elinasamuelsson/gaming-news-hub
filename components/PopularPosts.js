@@ -8,31 +8,39 @@ const PostHistory = () => {
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/posts")
-      .then((response) => response.json())
-      .then((json) => setDataPostHistory(json))
-      .catch((error) => console.log(error));
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        setDataPostHistory(json);
+      })
+      .catch((error) => {
+        console.error(error);
+        setError(error);
+      });
   }, []);
 
-  return (
-    <div>
+  if (loading) {
+    return <div>Error loading games.</div>;
+  } else
+    return (
       <div>
-        <h2>Popular posts</h2>
+        <div>
+          <h2>Popular posts</h2>
+        </div>
+        <div>
+          {dataPostHistory.slice(0, 3).map((post, index) => (
+            <div key={index}>
+              <h3>
+                <Link href={`/reviews/${post.id}`}>{post.title}</Link>
+              </h3>
+              <p className="post-details">Author: {post.userId}, timestamp</p>
+              <p>{post.body}</p>
+            </div>
+          ))}
+        </div>
       </div>
-      <div>
-        {dataPostHistory.slice(0, 3).map((post, index) => (
-          <div key={index}>
-            <h3>
-              <Link href={`/reviews/${post.id}`}>
-                {post.title}
-              </Link>
-            </h3>
-            <p className="post-details">Author: {post.userId}, timestamp</p>
-            <p>{post.body}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+    );
 };
 
 export default PostHistory;

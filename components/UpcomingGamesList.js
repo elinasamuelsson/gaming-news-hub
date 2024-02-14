@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react";
 
 const UpcomingGamesList = () => {
   const [dataUpcoming, setDataUpcoming] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,42 +23,51 @@ const UpcomingGamesList = () => {
         console.log(jsonData);
 
         setDataUpcoming(jsonData.results);
+        setLoading(false);
         console.log(dataUpcoming);
       } catch (error) {
         console.log(error);
+        setError(true);
+        setLoading(false);
       }
     };
 
     fetchData();
   }, []);
-  return (
-    <div>
+
+  if (loading) {
+    return <div>Loading...</div>;
+  } else if (error) {
+    return <div>Error loading games.</div>;
+  } else
+    return (
       <div>
-        <h2 className="h2-upcoming">Upcoming games</h2>
-        <ul className="upcoming-list">
-          {dataUpcoming.map((game, index) => (
-            <li key={index}>
-              <div>
-                <h4 className="h4-upcoming">{game.name}</h4>
-                <img src={game.background_image} className="image-upcoming" />
-                <p className="game-details">{game.released}</p>
-                <ul className="list-flex">
-                  {game.genres.map((genre, i) => (
-                    <li key={i}>{genre.name}, </li>
-                  ))}
-                </ul>
-                <ul className="list-flex">
-                  {game.platforms.map((platform, z) => (
-                    <li key={z}>{platform.platform.name}, </li>
-                  ))}
-                </ul>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <div>
+          <h2 className="h2-upcoming">Upcoming games</h2>
+          <ul className="upcoming-list">
+            {dataUpcoming.map((game, index) => (
+              <li key={index}>
+                <div>
+                  <h4 className="h4-upcoming">{game.name}</h4>
+                  <img src={game.background_image} className="image-upcoming" />
+                  <p className="game-details">{game.released}</p>
+                  <ul className="list-flex">
+                    {game.genres.map((genre, i) => (
+                      <li key={i}>{genre.name}, </li>
+                    ))}
+                  </ul>
+                  <ul className="list-flex">
+                    {game.platforms.map((platform, z) => (
+                      <li key={z}>{platform.platform.name}, </li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-    </div>
-  );
+    );
 };
 
 export default UpcomingGamesList;
