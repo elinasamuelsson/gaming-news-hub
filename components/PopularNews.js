@@ -11,10 +11,7 @@ const PopularNews = () => {
     const fetchData = async () => {
       try {
         const url =
-          "https://newsapi.org/v2/everything?" +
-          "q=gaming&" +
-          "sortBy=popularity&" +
-          "apiKey=c30072e05d984e198cf7cc20aa1c134d";
+          "";
 
         const response = await fetch(url);
         const jsonData = await response.json();
