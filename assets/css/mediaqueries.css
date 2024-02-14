@@ -1,0 +1,95 @@
+@media screen and (max-width: 1279px) {
+  /*home*/
+  nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-inline-start: 0px;
+  }
+
+  nav ul li {
+    padding-bottom: 5px;
+  }
+
+  .content {
+    flex-direction: column;
+  }
+
+  .main {
+    width: auto;
+  }
+
+  .side {
+    width: auto;
+  }
+
+  .divider-column {
+    display: none;
+  }
+  /*newshub*/
+  .search-bar {
+    width: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .search-results {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .card-container {
+    width: auto;
+  }
+
+  .card {
+    width: auto;
+  }
+
+  .card:nth-child(n + 20) {
+    height: fit-content;
+  }
+
+  /*reviews*/
+  .main {
+    order: 1;
+  }
+  .side {
+    order: 2;
+  }
+
+  /*upcoming*/
+  .upcoming-list {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+  }
+
+  .list-flex {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5px;
+  }
+
+  .h4-upcoming {
+    text-align: center;
+  }
+
+  .list-flex:last-child {
+    border-bottom: 1px dashed var(--dark-green);
+    font-style: italic;
+  }
+
+  .image-upcoming {
+    display: none;
+  }
+}

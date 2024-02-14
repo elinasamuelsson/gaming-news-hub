@@ -1,0 +1,20 @@
+:root {
+  /*colors*/
+  --white: #ffffff;
+  --light-gray: #f5f5f5;
+  --black: #000000;
+  --beige: #e5c59e;
+  --brown: #997b66;
+  --dark-blue: #14424c;
+  --dark-green: #797d62;
+  --light-green: #9b9b7a;
+
+  /*sizings*/
+  --m-small: 2rem;
+  --m-standard: 4rem;
+  --m-big: 6rem;
+
+  --page-width: 1280px;
+  --section-large: 768px;
+  --section-small: 312px;
+}

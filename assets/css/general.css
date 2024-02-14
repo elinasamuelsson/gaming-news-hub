@@ -1,0 +1,195 @@
+/*font-faces*/
+@font-face {
+  font-family: "Rubik Glitch";
+  src: url("../fonts/Rubik_Glitch/RubikGlitch-Regular.ttf") format(ttf);
+  src: url("../fonts/Rubik_Glitch/RubikGlitch-Regular.woff") format(woff);
+  src: url("../fonts/Rubik_Glitch/RubikGlitch-Regular.woff2") format(woff2);
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Libre Baskerville Regular";
+  src: url("../fonts/Libre_Baskerville/LibreBaskerville-Regular.ttf")
+    format(ttf);
+  src: url("../fonts/Libre_Baskerville/LibreBaskerville-Regular.woff")
+    format(woff);
+  src: url("../fonts/Libre_Baskerville/LibreBaskerville-Regular.woff2")
+    format(woff2);
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Libre Baskerville Italic";
+  src: url("../fonts/Libre_Baskerville/LibreBaskerville-Italic.ttf") format(ttf);
+  src: url("../fonts/Libre_Baskerville/LibreBaskerville-Italic.woff")
+    format(woff);
+  src: url("../fonts/Libre_Baskerville/LibreBaskerville-Italic.woff2")
+    format(woff2);
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Noto Sans";
+  src: url("../fonts/Noto_Sans/NotoSans.ttf") format(ttf);
+  src: url("../fonts/Noto_Sans/NotoSans.woff") format(woff);
+  src: url("../fonts/Noto_Sans/NotoSans.woff2") format(woff2);
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Noto Sans Italic";
+  src: url("../fonts/Noto_Sans/NotoSans-Italic.ttf") format(ttf);
+  src: url("../fonts/Noto_Sans/NotoSans-Italic.woff") format(woff);
+  src: url("../fonts/Noto_Sans/NotoSans-Italic.woff2") format(woff2);
+  font-weight: 400;
+  font-style: italic;
+}
+
+/*fonts, font sizing, font colors*/
+body {
+  letter-spacing: 1px;
+}
+
+h1 {
+  font-family: "Noto Sans";
+  font-size: 2.5rem;
+}
+
+h1 span {
+  font-family: "Rubik Glitch";
+  font-size: 3.5rem;
+}
+
+nav a {
+  font-family: "Noto Sans";
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: var(--dark-blue);
+}
+
+h2 {
+  font-family: "Rubik Glitch";
+  font-size: xx-large;
+  margin-left: var(--m-small);
+}
+
+.h2-upcoming {
+  text-align: center;
+  margin-left: 0px;
+}
+
+.card h3 {
+  font-family: "Noto Sans";
+  text-align: center;
+}
+
+p {
+  font-family: "Libre Baskerville Regular";
+  line-height: 1.75rem;
+}
+
+a {
+  color: var(--dark-blue);
+}
+
+a:hover {
+  color: var(--black);
+  transition: color 0.3s ease;
+}
+
+.emphasis {
+  font-style: italic;
+  font-size: medium;
+}
+
+.post-details {
+  font-style: italic;
+  font-size: x-small;
+}
+
+.game-details {
+  font-size: x-small;
+}
+
+footer {
+  text-align: center;
+}
+
+/*body colors*/
+body {
+  background-color: var(--light-gray);
+}
+
+header {
+  background-color: var(--light-green);
+}
+
+.content,
+.content-column {
+  background-color: var(--light-gray);
+  border-right: 2px dotted var(--light-green);
+  border-left: 2px dotted var(--light-green);
+}
+
+footer {
+  background-color: var(--dark-green);
+}
+
+header h1 {
+  text-align: center;
+}
+
+/*nav detailing*/
+nav ul li {
+  list-style-type: none;
+}
+
+/*image styling*/
+.card-image {
+  height: 80%;
+  width: 80%;
+}
+
+/*cards styling*/
+.card {
+  border: 2px solid var(--light-green);
+  border-radius: 15px;
+  background-color: var(--white);
+  /*used box shadow generator to create appropriately sized shadow effects*/
+  box-shadow: 3px 3px 10px 5px rgba(121, 125, 98, 0.29);
+  -webkit-box-shadow: 3px 3px 10px 5px rgba(121, 125, 98, 0.29);
+  -moz-box-shadow: 3px 3px 10px 5px rgba(121, 125, 98, 0.29);
+}
+
+/*search bar styling*/
+.search-bar li {
+  list-style-type: none;
+  margin-left: -2rem;
+}
+
+button {
+  background-color: var(--light-green);
+  padding-left: var(--m-small);
+  padding-right: var(--m-small);
+  border-width: 1px;
+  border-radius: 5px;
+  font-family: "Noto Sans";
+}
+
+button:hover {
+  background-color: var(--dark-green);
+  color: var(--dark-blue);
+  transition: color 0.3s ease;
+}
+
+.post-details {
+  margin-top: -15px;
+}
+
+.upcoming-list li {
+  list-style-type: none;
+}
